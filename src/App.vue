@@ -1,6 +1,6 @@
 <template>
   <navbar></navbar>
-  <div class="app">
+  <div class="app"> App: {{lines}}
     <router-view></router-view>
   </div>
 </template>
@@ -9,6 +9,13 @@
 import Navbar from "@/components/Navbar";
 
 export default {
+
+    data(){
+      return{
+          lines: 0
+      }
+    },
+
   components: {
     Navbar
   }
