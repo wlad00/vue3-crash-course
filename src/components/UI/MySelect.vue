@@ -11,6 +11,10 @@
   </select>
 </template>
 
+
+
+
+
 <script>
 export default {
   name: 'my-select',
@@ -26,10 +30,15 @@ export default {
   methods: {
     changeOption(event) {
       this.$emit('update:modelValue', event.target.value);
+      // this.modelValue = event.target.value;
     }
   }
 }
 </script>
+
+
+
+
 
 <style scoped>
 

@@ -1,16 +1,21 @@
 import { createApp } from 'vue'
 import App from './App'
 
-import components from '@/components/UI';
+import components_ui from '@/components/UI';
 import directives from '@/directives';
 
 import router from "@/router/router";
 import store from '@/store';
 
+
+// console.log(components_ui)
+
 const app = createApp(App)
 
-components.forEach(component => {
-    app.component(component.name, component)
+// Глобальная регистрация ui-компонентов
+
+components_ui.forEach(ui => {
+    app.component(ui.name, ui)
 })
 
 directives.forEach(directive => {

@@ -1,14 +1,19 @@
 <template>
   <div v-if="posts.length > 0">
     <h3>Список пользователей</h3>
+
+
     <transition-group name="user-list">
+
       <post-item
         v-for="post in posts"
         :post="post"
         :key="post.id"
-        @remove="$emit('remove', post)"
+        @removeItem="$emit('removeItem', post)"
       />
+
     </transition-group>
+
   </div>
   <h2 v-else style="color: red">
     Список пользователей пуст
@@ -18,8 +23,10 @@
 <script>
 import PostItem from "@/components/PostItem";
 export default {
+
   components: {PostItem},
   props: {
+
     posts: {
       type: Array,
       required: true

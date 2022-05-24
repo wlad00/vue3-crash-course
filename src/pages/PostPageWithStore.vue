@@ -1,35 +1,68 @@
 <template>
   <div>
+      <h1>{{$store.state.isAuth?'Auth':'Not Auth'}}</h1>
     <h1>Страница с постами</h1>
+      <!--<div>
+          <my-button @click="$store.commit('incrementLikes')">Like</my-button>
+          <my-button @click="$store.commit('decrementLikes')">Dislike</my-button>
+      </div>
+      <h1>{{ $store.state.likes}}</h1>-->
+
+      <!-- Search -->
+
     <my-input
       :model-value="searchQuery"
       @update:model-value="setSearchQuery"
+
       placeholder="Поиск...."
       v-focus
     />
+
+      <!-- BUTTONS -->
+
     <div class="app__btns">
+
+        <!-- Button-2-->
+
       <my-button
         @click="showDialog"
       >
         Создать пользователя
       </my-button>
+
+        <!-- Select -->
+
       <my-select
         :model-value="selectedSort"
         @update:model-value="setSelectedSort"
+
         :options="sortOptions"
       />
     </div>
+
+        <!-- Dialog -->
+
     <my-dialog v-model:show="dialogVisible">
       <post-form
         @create="createPost"
+
       />
     </my-dialog>
+
+      <!-- List -->
+
     <post-list
       :posts="sortedAndSearchedPosts"
       @remove="removePost"
+
       v-if="!isPostsLoading"
     />
     <div v-else>Идет загрузка...</div>
+
+
+
+
+
     <div v-intersection="loadMorePosts" class="observer"></div>
     <div class="page__wrapper">
       <div
@@ -47,6 +80,10 @@
   </div>
 </template>
 
+
+
+
+
 <script>
 import PostForm from "@/components/PostForm";
 import PostList from "@/components/PostList";
@@ -61,7 +98,8 @@ export default {
     MyInput,
     MySelect,
     MyButton,
-    PostList, PostForm
+    PostList,
+    PostForm
   },
   data() {
     return {
@@ -78,6 +116,8 @@ export default {
       loadMorePosts: 'post/loadMorePosts',
       fetchPosts: 'post/fetchPosts'
     }),
+
+
     createPost(post) {
       this.posts.push(post);
       this.dialogVisible = false;

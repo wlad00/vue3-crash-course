@@ -14,7 +14,7 @@ export const postModule = {
             {value: 'body', name: 'По содержимому'},
         ]
     }),
-    getters: {
+    getters: { // computed values
         sortedPosts(state) {
             return [...state.posts].sort((post1, post2) => post1[state.selectedSort]?.localeCompare(post2[state.selectedSort]))
         },
@@ -22,7 +22,7 @@ export const postModule = {
             return getters.sortedPosts.filter(post => post.title.toLowerCase().includes(state.searchQuery.toLowerCase()))
         }
     },
-    mutations: {
+    mutations: { //setters
         setPosts(state, posts) {
             state.posts = posts;
         },
@@ -45,7 +45,7 @@ export const postModule = {
     actions: {
         async fetchPosts({state, commit}) {
             try {
-                commit('setLoading', true);
+                commit('setLoading', true); // settings
                 const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
                     params: {
                         _page: state.page,

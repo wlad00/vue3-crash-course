@@ -2,6 +2,9 @@
   <input :value="modelValue" @input="updateInput" class="input" type="text">
 </template>
 
+
+
+
 <script>
 export default {
   name: 'my-input',
@@ -15,6 +18,11 @@ export default {
   }
 }
 </script>
+
+
+
+
+
 
 <style scoped>
 .input {
