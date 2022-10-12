@@ -10,17 +10,17 @@ import store from '@/store';
 
 // console.log(components_ui)
 
-const app = createApp(App)
+const app = createApp(App);
 
 // Глобальная регистрация ui-компонентов
 
 components_ui.forEach(ui => {
     app.component(ui.name, ui)
-})
+});
 
 directives.forEach(directive => {
     app.directive(directive.name, directive)
-})
+});
 
 app
     .use(router)

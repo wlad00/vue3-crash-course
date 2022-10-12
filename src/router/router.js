@@ -5,6 +5,8 @@ import About from "@/pages/About";
 import PostIdPage from "@/pages/PostIdPage";
 import PostPageWithStore from "@/pages/PostPageWithStore";
 import Composition from "@/pages/Composition/Composition";
+import Sneakers from "@/pages/Sneakers/Sneakers";
+import Oop from "@/pages/Oop/Oop";
 
 
 const routes = [
@@ -31,6 +33,14 @@ const routes = [
     {
         path: '/composition',
         component: Composition
+    },
+    {
+        path: '/sneakers',
+        component: Sneakers
+    },
+    {
+        path: '/oop',
+        component: Oop
     },
 
 ]
